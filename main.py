@@ -21,38 +21,16 @@ def process_data(key, value_data):
                     if time_difference >= timedelta(days=30):
                         continue
 
-                    if 'IT' in tech_category:
-                        print(value.get('_id',''))
-                        print(value.get('jobUrl',''))
-                        print(value.get('name',''))
-                        print(tech_category)
-                        print("")
-                    if 'Python' in tech_category:
-                        print(value.get('_id',''))
-                        print(value.get('jobUrl',''))
-                        print(value.get('name',''))
-                        print(tech_category)
-                        print("")
-                    if 'C++' in tech_category:
-                        print(value.get('_id',''))
-                        print(value.get('jobUrl',''))
-                        print(value.get('name',''))
-                        print(tech_category)
-                        print("")
-                    if 'Security' in tech_category:
-                        print(value.get('_id',''))
-                        print(value.get('jobUrl',''))
-                        print(value.get('name',''))
-                        print(tech_category)
-                        print("")
-                    if 'DevOps' in tech_category:
-                        print(value.get('_id',''))
-                        print(value.get('jobUrl',''))
-                        print(value.get('name',''))
-                        print(tech_category)
-                        print("")
-                    
-                
+                    categories = ['IT', 'Python', 'C++', 'Security', 'DevOps']
+
+                    for category in categories:
+                        if category in tech_category:
+                            print(value.get('_id', ''))
+                            print(value.get('jobUrl', ''))
+                            print(value.get('name', ''))
+                            print(tech_category)
+                            print("")
+                                        
             case _:
                 print("Nothing")
 
