@@ -3,6 +3,8 @@ import pandas as pd
 from dateutil import parser
 from datetime import datetime, timedelta
 
+#TODO: Refactor function to fit somewhere else. This is too cluttering
+#Function to process api data
 def process_data(key, value_data):
     match key:
             case 'devitjobs':
@@ -57,11 +59,14 @@ def process_data(key, value_data):
 def main():
     api_dict = {}
 
+    #Read csv file of APIs
     df = pd.read_csv('config/api_info.csv')
 
+    #Create APIClient object for each API
     for row in df.itertuples(index=False):
         api_dict[row.website] = APIClient(row.url, row.api_key, row.header)
 
+    #Get data from each API and process it
     for key, value in api_dict.items():
         value_data = value.get_data()
         process_data(key, value_data)

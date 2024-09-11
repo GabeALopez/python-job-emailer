@@ -8,10 +8,12 @@ class APIClient:
         self.api_key = api_key
         self.header = header
 
+    #Function to send API request
     def get_data(self):
 
         url = f"{self.url}"
 
+        #Check if there is an API key and run corresponding request you if you do have one
         if isinstance(self.api_key, str):
             headers = f"{self.header}: {self.api_key}"
             response = requests.get(url, headers=headers) 
