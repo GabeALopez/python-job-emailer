@@ -20,12 +20,17 @@ def process_data(key, value_data):
                     if time_difference >= timedelta(days=30):
                         continue
 
-                    categories = ['IT', 'Python', 'Security', 'DevOps']
+                    if 'Senior' in value.get('expLevel',''):
+                        continue
+                    
+                    if 'Senior' in value.get('name','') or 'Sr' in value.get('name',''):
+                        continue
+
+                    categories = ['IT', 'Security', 'DevOps']
 
                     #TODO: Figure out what to do with data
                     for category in categories:
                         if category in tech_category:
-                            print(value.get('_id', ''))
                             print(value.get('jobUrl', ''))
                             print(value.get('name', ''))
                             print(tech_category)
