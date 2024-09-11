@@ -8,6 +8,7 @@ class APIClient:
         self.api_key = api_key
         self.header = header
 
+    #TODO: refactor code for different type of Auth
     #Function to send API request
     def get_data(self):
 
