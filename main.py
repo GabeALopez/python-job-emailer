@@ -8,7 +8,6 @@ from datetime import datetime, timedelta
 def process_data(key, value_data):
     match key:
             case 'devitjobs':
-                print("devitjobs")
                 for value in value_data:
                     tech_category = value.get('techCategory','')
                     active_from = value.get('activeFrom','')
@@ -21,8 +20,9 @@ def process_data(key, value_data):
                     if time_difference >= timedelta(days=30):
                         continue
 
-                    categories = ['IT', 'Python', 'C++', 'Security', 'DevOps']
+                    categories = ['IT', 'Python', 'Security', 'DevOps']
 
+                    #TODO: Figure out what to do with data
                     for category in categories:
                         if category in tech_category:
                             print(value.get('_id', ''))
